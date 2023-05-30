@@ -9,7 +9,8 @@
     "build": "cross-env NODE_ENV=production webpack",
     "dev": "cross-env NODE_ENV=development webpack",
     "dist": "gh-pages -d dist",
-    "eslint": "npx eslint --fix src/index.js src/scripts/*.js"
+    "eslint": "npx eslint --fix src/index.js src/scripts/*.js",
+    "stats": "npx webpack --mode production --profile --json > stats.json"
   },
   "repository": {
     "type": "git",
@@ -40,6 +41,8 @@
     "css-loader": "^6.8.1",
     "cz-customizable": "^7.0.0",
     "gh-pages": "^5.0.0",
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.5.1",
     "mini-css-extract-plugin": "^2.7.6",
     "postcss": "^8.4.24",
     "postcss-loader": "^7.3.2",

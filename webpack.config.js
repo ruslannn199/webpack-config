@@ -1,4 +1,5 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -10,9 +11,17 @@ const filename = (ext) => (isDev ? `[name].${ext}` : `[contenthash].${ext}`);
 module.exports = {
   mode: mode,
   target: target,
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    }
+  },
 
   output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: filename('js'),
     assetModuleFilename: 'images/[contenthash][ext]',
+    clean: true,
   },
 
   module: {
@@ -44,12 +53,19 @@ module.exports = {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: { publicPath: '' },
+            options: { 
+              publicPath: '',
+              esModule: isDev,
+            },
           },
           'css-loader',
           'postcss-loader',
           'sass-loader'
         ],
+      },
+      {
+        test: /\.html$/i,
+        use: ['html-loader'],
       },
       {
         test: /\.js$/i,
@@ -62,7 +78,14 @@ module.exports = {
   },
 
   plugins: [
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: filename('css'),
+    }),
+    new HTMLWebpackPlugin({
+      template: './src/index.html',
+      filename: 'index.html',
+      minify: !isDev,
+    }),
   ],
 
   devtool: isDev ? 'source-map' : 'hidden-nosources-source-map',
