@@ -1,0 +1,37 @@
+{
+  "name": "webpack-config",
+  "version": "1.0.0",
+  "description": "my personal webpack config",
+  "main": "public/index.js",
+  "scripts": {
+    "start": "webpack serve",
+    "watch": "webpack --watch",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruslannn199/webpack-config.git"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "sass",
+    "scss",
+    "javascript",
+    "js",
+    "typescript",
+    "ts",
+    "postcss"
+  ],
+  "author": "Ruslan Kamenskiy <ruslannn199@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ruslannn199/webpack-config/issues"
+  },
+  "homepage": "https://github.com/ruslannn199/webpack-config#readme",
+  "devDependencies": {
+    "webpack": "^5.84.1",
+    "webpack-cli": "^5.1.1",
+    "webpack-dev-server": "^4.15.0"
+  }
+}
