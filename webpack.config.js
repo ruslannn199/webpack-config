@@ -17,6 +17,13 @@ module.exports = {
     }
   },
 
+  resolve: {
+    extensions: ['.ts', '.js'],
+  },
+
+  entry: {
+    index: './src/index',
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: filename('js'),
@@ -27,7 +34,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(png|jpe?g|gif)$/i,
+        test: /\.(png|jpe?g|gif)$/,
         type: 'asset/resource',
       },
       {
@@ -49,7 +56,7 @@ module.exports = {
         }
       },
       {
-        test: /\.(s[ac]|c)ss$/i,
+        test: /\.(s[ac]|c)ss$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
@@ -64,14 +71,14 @@ module.exports = {
         ],
       },
       {
-        test: /\.html$/i,
+        test: /\.html$/,
         use: ['html-loader'],
       },
       {
-        test: /\.js$/i,
+        test: /\.ts$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: 'ts-loader',
         },
       },
     ],
