@@ -1,15 +1,6 @@
 import './styles/index.scss';
+import Board from './scripts/Board';
+const sound = require('./sound/click.wav');
+new Audio(sound).play();
 
-const obj = {
-  one: {
-    two: {
-      three: 'awooooooo',
-    }
-  }
-}
-
-function woof(noise: string) {
-  console.log(noise);
-}
-
-woof(obj.one.two.three);
+const a: any = 2;

@@ -20,6 +20,5 @@
 
 ## TODO
 
-- [ ] Add new PostCSS plugins
 - [ ] Implement babel to standard javascript
 - [ ] Include framework to config

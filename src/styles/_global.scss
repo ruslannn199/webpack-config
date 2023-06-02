@@ -1,4 +1,6 @@
 @use "variables";
+@custom-media --viewport-small (width <= 500px);
+@custom-selector :--heading h1, h2, h3, h4, h5, h6;
 
 body {
   margin: 0;
@@ -16,4 +18,24 @@ main {
 
 button {
   font-size: 1.5rem;
+}
+
+:--heading {
+  color: #111;
+  margin-left: sin(45deg);
+}
+
+input {
+  padding: 1vw;
+  caret-color: yellow;
+  caret-shape: underscore;
+
+  @media (--viewport-small) {
+    font-size: 30px;
+  }
+
+  &::placeholder {
+    color: #f00;
+    opacity: 0.5;
+  }
 }

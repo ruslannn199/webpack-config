@@ -6,6 +6,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --open",
     "watch": "cross-env NODE_ENV=development webpack --watch",
+    "watch:p": "cross-env NODE_ENV=production webpack --watch",
     "build": "cross-env NODE_ENV=production webpack",
     "dev": "cross-env NODE_ENV=development webpack",
     "dist": "gh-pages -d dist",

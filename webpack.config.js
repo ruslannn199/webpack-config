@@ -38,6 +38,13 @@ module.exports = {
         type: 'asset/resource',
       },
       {
+        test: /\.ico/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'images/[name][ext]'
+        }
+      },
+      {
         test: /\.svg$/i,
         type: 'asset/inline',
       },
@@ -45,14 +52,14 @@ module.exports = {
         test: /\.(ttf|woff|woff2|eot)$/,
         type: 'asset/resource',
         generator: {
-          filename: 'assets/fonts/[contenthash][ext]',
+          filename: 'fonts/[contenthash][ext]',
         },
       },
       {
         test: /\.(wav|ogg|mp3)$/,
         type: 'asset/resource',
         generator: {
-          filename: 'assets/sound/[contenthash][ext]',
+          filename: 'sound/[contenthash][ext]',
         }
       },
       {
@@ -104,5 +111,7 @@ module.exports = {
     compress: true,
     open: true,
     hot: isDev,
+    compress: true,
+    historyApiFallback: true,
   },
 }
